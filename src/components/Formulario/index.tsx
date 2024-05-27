@@ -3,69 +3,64 @@ import Botao from "../Botao";
 import style from './Formulario.module.scss';
 import ITarefa from "../../types/tarefas";
 import { v4 as uuidv4 } from "uuid";
- 
-export default class Formulario extends React.Component<{setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>}> {
-    state = {
-        nome: "",
-        tempo: "00:00:00"
-    }  
 
-    adicionarTarefa(evento: React.FormEvent<HTMLFormElement>){
+export default function Formulario({setTarefas}: {setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>}) {
+    const [nome, setNome] = React.useState("");
+    const [tempo, setTempo] = React.useState("00:00:00");
+
+    function adicionarTarefa(evento: React.FormEvent<HTMLFormElement>){
         evento.preventDefault();
-        this.props.setTarefas(tarefasAntigas => 
+        setTarefas(tarefasAntigas => 
             [
                 ...tarefasAntigas, 
                 {
-                    ...this.state,
+                    nome,
+                    tempo,
                     selecionado: false,
                     completado: false,
                     id: uuidv4(),
                 }
             ]
         );
-        this.setState({
-            nome: "",
-            tempo: "00:00:00"
-        });
+        setNome("");
+        setTempo("00:00:00");
     }
 
-    render(): React.ReactNode {
-        return(
-            <form className={style.novaTarefa} onSubmit={this.adicionarTarefa.bind(this)}>
-                <div className={style.inputContainer}>
-                    <label htmlFor="tarefa">
-                        Adicione um novo estudo
-                    </label>
-                    <input
-                        type="text"
-                        name="tarefa"
-                        value={this.state.nome}
-                        onChange={evento => this.setState({...this.state, nome: evento.target.value})}
-                        id="tarefa"
-                        placeholder="O que você quer estudar?"
-                        required
-                    />
-                </div>
-                <div className={style.inputContainer}>
-                    <label>
-                        Tempo
-                    </label>
-                    <input
-                        type="time"
-                        step="1"
-                        name="tempo"
-                        value={this.state.tempo}
-                        onChange={evento => this.setState({...this.state, tempo: evento.target.value})}
-                        id="tempo"
-                        min="00:00:00"
-                        max="01:30:00"
-                        required
-                    />
-                </div>
-                <Botao type="submit">
-                    Adicionar
-                </Botao>
-            </form>
-        )
-    }
+    return(
+        <form className={style.novaTarefa} onSubmit={adicionarTarefa}>
+            <div className={style.inputContainer}>
+                <label htmlFor="tarefa">
+                    Adicione um novo estudo
+                </label>
+                <input
+                    type="text"
+                    name="tarefa"
+                    value={nome}
+                    onChange={evento => setNome(evento.target.value)}
+                    id="tarefa"
+                    placeholder="O que você quer estudar?"
+                    required
+                />
+            </div>
+            <div className={style.inputContainer}>
+                <label>
+                    Tempo
+                </label>
+                <input
+                    type="time"
+                    step="1"
+                    name="tempo"
+                    value={tempo}
+                    onChange={evento => setTempo(evento.target.value)}
+                    id="tempo"
+                    min="00:00:00"
+                    max="01:30:00"
+                    required
+                />
+            </div>
+            <Botao type="submit">
+                Adicionar
+            </Botao>
+        </form>
+    )
 }
