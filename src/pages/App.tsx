@@ -7,7 +7,7 @@ import ITarefa from '../types/tarefas';
 
 function App() {
   const [tarefas, setTarefas] = useState<ITarefa[] | []>([])
-  const [tarefaSelecionada, setSelecionado] = useState<ITarefa | null>(null)
+  const [tarefaSelecionada, setSelecionado] = useState<ITarefa | undefined>(undefined)
 
   function selecionarTarefa(tarefaSelecionada: ITarefa){
     setSelecionado(tarefaSelecionada);
@@ -26,7 +26,7 @@ function App() {
         tarefas={tarefas} 
         selecionarTarefa={selecionarTarefa}
       />
-      <Cronometro/>
+      <Cronometro tarefaSelecionada={tarefaSelecionada}/>
     </div>
   );
 }
