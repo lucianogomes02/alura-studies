@@ -7,7 +7,8 @@ interface Props extends ITarefa {
 
 export default function Item({nome, tempo, selecionado, completado, id, selecionarTarefa}: Props) {
     return (
-        <li className={`${style.item} ${selecionado ? style.itemSelecionado : ''}`} onClick={() => selecionarTarefa(
+        <li className={`${style.item} ${selecionado ? style.itemSelecionado : ''} 
+        ${completado ? style.itemCompletado : ''}`} onClick={() => !completado && selecionarTarefa(
             {
                 nome,
                 tempo,
@@ -18,6 +19,7 @@ export default function Item({nome, tempo, selecionado, completado, id, selecion
         )}>
             <h3>{nome}</h3>
             <span>{tempo}</span>
+            {completado && <span className={style.concluido} aria-label="Tarefa Completada"></span>}
         </li>
     )
 }
