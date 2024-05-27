@@ -4,7 +4,11 @@ import style from './Formulario.module.scss';
 import ITarefa from "../../types/tarefas";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Formulario({setTarefas}: {setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>}) {
+interface Props {
+    setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
+}
+
+export default function Formulario({setTarefas}: Props) {
     const [nome, setNome] = React.useState("");
     const [tempo, setTempo] = React.useState("00:00:00");
 
