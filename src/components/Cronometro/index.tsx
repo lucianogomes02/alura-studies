@@ -36,6 +36,7 @@ export default function Cronometro({ tarefaSelecionada, finalizarTarefa, cronome
     return (
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha uma tarefa e inicie o cronômetro</p>
+            <p className={style.subtitulo}>Tarefa selecionada: {tarefaSelecionada ? tarefaSelecionada.nome: 'Nenhuma tarefa selecionada'}</p>
             <div className={style.relogioWrapper}>
                 <Relogio tempoInicial={tempo} />
             </div>
