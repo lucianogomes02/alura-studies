@@ -11,7 +11,7 @@ interface Props {
 export default function Tarefas({ tarefas, selecionarTarefa }: Props) {
     return(
         <aside className={style.listaTarefas}>
-            <h2> Estudos do Dia</h2>
+            <h2> Tarefas do Dia</h2>
             <ul>
                 {tarefas.map((tarefa) => (
                     <Tarefa

@@ -32,7 +32,7 @@ export default function Cronometro({ tarefaSelecionada, finalizarTarefa }: Props
 
     return (
         <div className={style.cronometro}>
-            <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
+            <p className={style.titulo}>Escolha uma tarefa e inicie o cronômetro</p>
             <div className={style.relogioWrapper}>
                 <Relogio tempoInicial={tempo} />
             </div>
