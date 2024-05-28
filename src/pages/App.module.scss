@@ -1,12 +1,11 @@
 .AppStyle {
     display: grid;
-    grid-template-rows: min-content min-content auto;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
-    "nova-tarefa"
-    "cronometro"
-    "tarefas"
+    "nova-tarefa cronometro"
+    "tarefas tarefas"
     ;
-    row-gap: 24px;
+    column-gap: 5rem;
     min-width: 320px;
     min-height: calc(100vh - 32px);
     width: 100%;
@@ -16,9 +15,11 @@
     background-color: #171717;
   
     @media screen and (min-width:1280px)  {
+      grid-template-rows: min-content min-content auto;
       grid-template-areas: 
-      "nova-tarefa tarefas"
-      "cronometro tarefas"
+      "nova-tarefa"
+      "cronometro"
+      "tarefas"
       ;
       column-gap: 64px;
       grid-template-rows: min-content min-content;
