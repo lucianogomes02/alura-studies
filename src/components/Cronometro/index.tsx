@@ -40,7 +40,7 @@ export default function Cronometro({ tarefaSelecionada, finalizarTarefa, cronome
             <div className={style.relogioWrapper}>
                 <Relogio tempoInicial={tempo} />
             </div>
-            <Botao onClick={() => regressiva(tempo)}>
+            <Botao onClick={() => regressiva(tempo)} desabilitado={!tarefaSelecionada || cronometroAtivo}>
                 Iniciar
             </Botao>
         </div>
