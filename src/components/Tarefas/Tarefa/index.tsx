@@ -8,8 +8,9 @@ interface Props extends ITarefa {
 
 export default function Tarefa({nome, tempo, selecionado, completado, id, selecionarTarefa, cronometroAtivo}: Props) {
     return (
-        <li className={`${style.tarefa} ${selecionado || cronometroAtivo ? style.tarefaSelecionada : ''} 
-        ${completado ? style.tarefaCompletada : ''}`} onClick={() => !completado && selecionarTarefa(
+        <li className={`${style.tarefa} ${selecionado ? style.tarefaSelecionada : ''}
+        ${cronometroAtivo ? style.tarefaBloqueada : ''} 
+        ${completado ? style.tarefaCompletada : ''}`} onClick={() => !completado && !cronometroAtivo && selecionarTarefa(
             {
                 nome,
                 tempo,
