@@ -1,6 +1,6 @@
 import React from "react";
-import Item from "./Item";
-import style from './Lista.module.scss';
+import Tarefa from "./Tarefa";
+import style from './Tarefas.module.scss';
 import ITarefa from "../../types/tarefas";
 
 interface Props {
@@ -8,13 +8,13 @@ interface Props {
     selecionarTarefa: (tarefa: ITarefa) => void
 }
 
-export default function Lista({ tarefas, selecionarTarefa }: Props) {
+export default function Tarefas({ tarefas, selecionarTarefa }: Props) {
     return(
         <aside className={style.listaTarefas}>
             <h2> Estudos do Dia</h2>
             <ul>
                 {tarefas.map((tarefa) => (
-                    <Item
+                    <Tarefa
                         selecionarTarefa={selecionarTarefa}
                         key={tarefa.id}
                         {...tarefa}
