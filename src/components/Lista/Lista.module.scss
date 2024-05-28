@@ -5,11 +5,11 @@
     h2 {
       font-size: 1.25rem;
       margin-bottom: 12px;
-      margin-top: 18px;
     }
   
     ul {
-      max-height: 13.5rem;
+      max-height: 425px;
+      overflow-y: auto; /* Permite rolagem vertical se o conteúdo exceder a altura máxima */
       overflow-y: scroll;
         scrollbar-width: thin;
         ::-webkit-scrollbar-track {

@@ -1,9 +1,9 @@
 .AppStyle {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-    "nova-tarefa cronometro"
-    "tarefas tarefas"
+    "nova-tarefa tarefas tarefas"
+    "cronometro tarefas tarefas"
     ;
     column-gap: 5rem;
     min-width: 320px;
