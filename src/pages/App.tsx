@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Formulario from '../components/Formulario';
-import Lista from '../components/Lista';
+import Tarefas from '../components/Tarefas';
 import style from  './App.module.scss';
 import Cronometro from '../components/Cronometro';
 import ITarefa from '../types/tarefas';
@@ -8,6 +8,7 @@ import ITarefa from '../types/tarefas';
 function App() {
   const [tarefas, setTarefas] = useState<ITarefa[] | []>([])
   const [tarefaSelecionada, setSelecionado] = useState<ITarefa | undefined>(undefined)
+  const [cronometroAtivo, setCronometroAtivo] = useState(false);
 
   function selecionarTarefa(tarefaSelecionada: ITarefa){
     setSelecionado(tarefaSelecionada);
@@ -29,19 +30,23 @@ function App() {
           selecionado: false
         }
       )));
+      setCronometroAtivo(false);
     }
   }
 
   return (
     <div className={style.AppStyle}>
       <Formulario setTarefas={setTarefas}/>
-      <Lista 
+      <Tarefas 
         tarefas={tarefas} 
         selecionarTarefa={selecionarTarefa}
+        cronometroAtivo={cronometroAtivo}
       />
       <Cronometro 
         tarefaSelecionada={tarefaSelecionada} 
         finalizarTarefa={finalizarTarefa}
+        cronometroAtivo={cronometroAtivo}
+        setCronometroAtivo={setCronometroAtivo}
       />
     </div>
   );

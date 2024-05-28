@@ -1,4 +1,4 @@
-.item {
+.tarefa {
     background-color: #4D4D4D;
     border-radius: 8px;
     box-shadow: 2px 4px 4px #0000009F;
@@ -21,12 +21,12 @@
     }
   }
   
-.itemSelecionado {
+.tarefaSelecionada {
   background-color: #292929;
   box-shadow: 2px 4px 4px #0000009F inset;
 }
 
-.itemCompletado {
+.tarefaCompletada {
   background-color: #566F42;
   cursor: auto;
 
@@ -42,4 +42,8 @@
     width: 42px;
     height: 43px;
   }
+}
+
+.tarefaBloqueada {
+  cursor: not-allowed;
 }

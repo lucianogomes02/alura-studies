@@ -1,14 +1,16 @@
 import ITarefa from '../../../types/tarefas';
-import style from './Item.module.scss';
+import style from './Tarefa.module.scss';
 
 interface Props extends ITarefa {
     selecionarTarefa: (tarefa: ITarefa) => void
+    cronometroAtivo: boolean
 }
 
-export default function Item({nome, tempo, selecionado, completado, id, selecionarTarefa}: Props) {
+export default function Tarefa({nome, tempo, selecionado, completado, id, selecionarTarefa, cronometroAtivo}: Props) {
     return (
-        <li className={`${style.item} ${selecionado ? style.itemSelecionado : ''} 
-        ${completado ? style.itemCompletado : ''}`} onClick={() => !completado && selecionarTarefa(
+        <li className={`${style.tarefa} ${selecionado ? style.tarefaSelecionada : ''}
+        ${cronometroAtivo ? style.tarefaBloqueada : ''} 
+        ${completado ? style.tarefaCompletada : ''}`} onClick={() => !completado && !cronometroAtivo && selecionarTarefa(
             {
                 nome,
                 tempo,

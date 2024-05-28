@@ -34,7 +34,7 @@ export default function Formulario({setTarefas}: Props) {
         <form className={style.novaTarefa} onSubmit={adicionarTarefa}>
             <div className={style.inputContainer}>
                 <label htmlFor="tarefa">
-                    Adicione um novo estudo
+                    Adicione uma nova tarefa
                 </label>
                 <input
                     type="text"
@@ -42,7 +42,7 @@ export default function Formulario({setTarefas}: Props) {
                     value={nome}
                     onChange={evento => setNome(evento.target.value)}
                     id="tarefa"
-                    placeholder="O que você quer estudar?"
+                    placeholder="Qual é a tarefa que deseja realizar?"
                     required
                 />
             </div>
@@ -57,8 +57,7 @@ export default function Formulario({setTarefas}: Props) {
                     value={tempo}
                     onChange={evento => setTempo(evento.target.value)}
                     id="tempo"
-                    min="00:00:00"
-                    max="01:30:00"
+                    min="00:05:00"
                     required
                 />
             </div>
