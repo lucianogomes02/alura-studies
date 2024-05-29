@@ -1,0 +1,40 @@
+.menuDropdown {
+  position: relative;
+}
+  
+.botaoMenu {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+  
+.listaMenu {
+  display: block;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  margin-top: 8px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+}
+  
+.itemMenu {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+  
