@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import style from './ListagemPaginasMenu.module.scss';
+import { Link } from 'react-router-dom';
+import OpcoesMenu from '../../../types/opcoesMenu';
 
 interface Props {
-    opcoes: string[];
+    opcoes: OpcoesMenu[];
 }
+
 
 export default function ListagemPaginasMenu({ opcoes }: Props) {
     const [estaAberto, setEstaAberto] = useState<boolean>(false);
@@ -17,7 +20,7 @@ export default function ListagemPaginasMenu({ opcoes }: Props) {
             <ul className={style.listaMenu}>
             {opcoes.map((opcao, index) => (
                 <li key={index} className={style.itemMenu}>
-                {opcao}
+                <Link to={opcao.url}>{opcao.nome}</Link>
                 </li>
             ))}
             </ul>

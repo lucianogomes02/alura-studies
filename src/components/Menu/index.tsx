@@ -1,4 +1,3 @@
-// Menu.js
 import './Menu.module.scss';
 import style from './Menu.module.scss';
 import ListagemPaginasMenu from './ListagemPaginasMenu';
@@ -8,9 +7,8 @@ export default function Menu() {
     <div className={style.menu}>
       <ListagemPaginasMenu 
         opcoes={[
-          'Home', 
-          'Tarefas', 
-          'Sobre'
+          {nome: 'Home', url: '/'}, 
+          {nome: 'Tarefas', url: '/tarefas'},
         ]} 
       />
       <h1 className={style.appName}>Planejamento de Tarefas</h1>
