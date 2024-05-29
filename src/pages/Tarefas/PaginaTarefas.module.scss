@@ -1,0 +1,52 @@
+// Definição de cores
+$primary-bg-color: #171717;
+$secondary-bg-color: white;
+$hover-bg-color: #0056b3;
+$button-bg-color: #007bff;
+
+@mixin boxShadow($color) {
+  box-shadow: 0 4px 6px rgba($color, 0.1);
+}
+
+@mixin transition($property, $duration, $ease) {
+  transition: $property $duration $ease;
+}
+
+.paginaDeTarefas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 320px;
+  min-height: calc(100vh - 32px);
+  width: auto;
+  padding: 32px;
+  background-color: $primary-bg-color;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+}
+
+.tabelaDeTarefas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: $primary-bg-color;
+    color: white;
+  }
+
+ .botaoPaginacao {
+    @extend.botaoPaginacao;
+  }
+}
