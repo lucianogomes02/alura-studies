@@ -2,7 +2,6 @@ import React from "react";
 import Botao from "../Botao";
 import style from './Formulario.module.scss';
 import ITarefa from "../../types/tarefas";
-import { v4 as uuidv4 } from "uuid";
 
 interface Props {
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
@@ -20,9 +19,7 @@ export default function Formulario({setTarefas}: Props) {
                 {
                     nome,
                     tempo,
-                    selecionado: false,
-                    completado: false,
-                    id: uuidv4(),
+                    status: "PENDING",
                 }
             ]
         );

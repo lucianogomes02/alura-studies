@@ -26,7 +26,7 @@ export default function Home() {
         setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => (
             {
             ...tarefa,
-            completado: tarefa.id === tarefaSelecionada.id ? true : tarefa.completado,
+            completado: tarefa.id === tarefaSelecionada.id ? true : tarefa.status = "DONE",
             selecionado: false
             }
         )));

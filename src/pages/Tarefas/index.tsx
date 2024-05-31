@@ -1,46 +1,10 @@
 import { useState } from 'react'
 import ITarefa from '../../types/tarefas'
 import style from './PaginaTarefas.module.scss'
-import { v4 as randomUUID } from 'uuid';
 
 export default function PaginaDeTarefas() {
-    const [tarefas, setTarefas] = useState<ITarefa[] | []>([
-      {
-        id: randomUUID(),
-        nome: 'Estudar React',
-        tempo: '30 minutos',
-        selecionado: false,
-        completado: false
-      },
-      {
-        id: randomUUID(),
-        nome: 'Estudar CSS',
-        tempo: '20 minutos',
-        selecionado: false,
-        completado: false
-      },
-      {
-        id: randomUUID(),
-        nome: 'Estudar HTML',
-        tempo: '10 minutos',
-        selecionado: false,
-        completado: false
-      },
-      {
-        id: randomUUID(),
-        nome: 'Estudar JavaScript',
-        tempo: '40 minutos',
-        selecionado: false,
-        completado: false
-      },
-      {
-        id: randomUUID(),
-        nome: 'Estudar TypeScript',
-        tempo: '50 minutos',
-        selecionado: false,
-        completado: false
-      },
-    ])
+    const [tarefas, setTarefas] = useState<ITarefa[] | []>([])
+    // aplifcar o useEffect para carregar as tarefas com o repository
     const [paginaAtual, setPaginaAtual] = useState<number>(1)
 
     const proximaPagina = () => {
@@ -80,8 +44,9 @@ export default function PaginaDeTarefas() {
                       <tr key={tarefa.id}>
                           <td>{tarefa.nome}</td>
                           <td>{tarefa.tempo}</td>
-                          <td>{String(tarefa.selecionado)}</td>
-                          <td>{String(tarefa.completado)}</td>
+                          <td>{tarefa.status}</td>
+                          <td>{String(tarefa.criadoEm)}</td>
+                          <td>{String(tarefa.atualizadoEm)}</td>
                       </tr>
                   ))}
               </tbody>

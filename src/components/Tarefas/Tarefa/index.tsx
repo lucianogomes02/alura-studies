@@ -3,25 +3,27 @@ import style from './Tarefa.module.scss';
 
 interface Props extends ITarefa {
     selecionarTarefa: (tarefa: ITarefa) => void
+    selecionado: boolean
     cronometroAtivo: boolean
 }
 
-export default function Tarefa({nome, tempo, selecionado, completado, id, selecionarTarefa, cronometroAtivo}: Props) {
+export default function Tarefa({id, nome, tempo, status, atualizadoEm, criadoEm, selecionado, selecionarTarefa, cronometroAtivo}: Props) {
     return (
         <li className={`${style.tarefa} ${selecionado ? style.tarefaSelecionada : ''}
         ${cronometroAtivo ? style.tarefaBloqueada : ''} 
-        ${completado ? style.tarefaCompletada : ''}`} onClick={() => !completado && !cronometroAtivo && selecionarTarefa(
+        ${status === "DONE" ? style.tarefaCompletada : ''}`} onClick={() => status !== "DONE" && !cronometroAtivo && selecionarTarefa(
             {
+                id,
                 nome,
                 tempo,
-                selecionado,
-                completado,
-                id
+                status,
+                criadoEm,
+                atualizadoEm
             }
         )}>
             <h3>{nome}</h3>
             <span>{tempo}</span>
-            {completado && <span className={style.concluido} aria-label="Tarefa Completada"></span>}
+            {status === "DONE" && <span className={style.concluido} aria-label="Tarefa Completada"></span>}
         </li>
     )
 }

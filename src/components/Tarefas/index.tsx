@@ -11,13 +11,13 @@ interface Props {
 
 export default function Tarefas({ tarefas, selecionarTarefa, cronometroAtivo }: Props) {
     const ordenarTarefasConcluidas = [...tarefas].sort((tarefaAtual, tarefaAnterior) => {
-        if (tarefaAtual.completado === true && tarefaAnterior.completado === true) {
+        if (tarefaAtual.status === "DONE" && tarefaAnterior.status === "DONE") {
             return 0; 
         }
-        if (tarefaAtual.completado === true) {
+        if (tarefaAtual.status === "DONE") {
             return -1;
         }
-        if (tarefaAnterior.completado === true) {
+        if (tarefaAnterior.status === "DONE") {
             return 1;
         }
         return 0;
@@ -32,6 +32,7 @@ export default function Tarefas({ tarefas, selecionarTarefa, cronometroAtivo }: 
                         selecionarTarefa={selecionarTarefa}
                         key={tarefa.id}
                         cronometroAtivo={cronometroAtivo}
+                        selecionado={false}
                         {...tarefa}
                     />
                 ))}
